@@ -14,6 +14,11 @@ variable "resource_group_name" {
   type        = string
 }
 
+variable "operating_system" {
+  description = "Desired OS for the provisioned resources"
+  type        = string
+}
+
 variable "size" {
   description = "Desired size for the provisioned resources for each service"
   type        = string
