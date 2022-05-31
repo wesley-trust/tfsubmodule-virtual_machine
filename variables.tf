@@ -43,11 +43,13 @@ variable "network_interface_ids" {
 variable "availability_set_id" {
   description = "Availability set ID"
   type        = string
+  nullable    = true
 }
 
 variable "zone" {
   description = "Availability zones for the provisioned resources"
   type        = string
+  nullable    = true
 }
 
 variable "disk_size_gb" {
