@@ -1,6 +1,6 @@
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "virtual_machine" {
-  count = var.resource_instance_count == "Windows" ? 1 : 0
+  count = var.operating_system_platform == "Windows" ? 1 : 0
 
   name                = var.name
   location            = var.location

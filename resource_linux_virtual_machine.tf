@@ -1,6 +1,6 @@
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "virtual_machine" {
-  count = var.resource_instance_count == "Linux" ? 1 : 0
+  count = var.operating_system_platform == "Linux" ? 1 : 0
 
   name                            = var.name
   location                        = var.location

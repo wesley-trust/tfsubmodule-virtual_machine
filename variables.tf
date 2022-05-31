@@ -14,7 +14,7 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "operating_system" {
+variable "operating_system_platform" {
   description = "Desired OS for the provisioned resources"
   type        = string
 }
