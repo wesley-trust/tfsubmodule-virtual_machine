@@ -13,11 +13,11 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
   # Specify list of network IDs
   network_interface_ids = var.network_interface_ids
 
-  # If the availability set is not zero, specify the zone, else set this to null, so it is ignored
-  availability_set_id = var.availability_set_id != 0 ? var.availability_set_id : null
+  # Specify the availability set (if not null)
+  availability_set_id = var.availability_set_id
 
-  # If the availability zone is not zero, specify the zone, else set this to null, so it is ignored
-  zone = var.zone != 0 ? var.zone : null
+  # Specify the availability zone (if not null) 
+  zone = var.zone
 
   os_disk {
     caching              = "ReadOnly"
