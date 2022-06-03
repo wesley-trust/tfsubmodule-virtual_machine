@@ -37,3 +37,10 @@ module "service_network" {
   resource_network_subnet_count = var.resource_network_interface_count
   resource_network_role         = var.resource_network_role
 }
+
+resource "random_password" "password" {
+  count = var.resource_instance_count
+
+  length  = 20
+  special = true
+}
