@@ -24,10 +24,8 @@ variable "service_location" {
 # Required resource variables
 variable "resource_name" {
   description = "Desired name for the provisioned resources"
-  type        = map(string)
-  default = {
-    "Services" = "TST"
-  }
+  type        = string
+  default     = "TST"
 }
 
 variable "resource_instance_count" {
@@ -123,5 +121,5 @@ variable "resource_private_ip_initial_address" {
 variable "resource_network_role" {
   description = "The network type for peering"
   type        = string
-  default = "Spoke"
+  default     = "Spoke"
 }

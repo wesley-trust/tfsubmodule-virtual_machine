@@ -29,7 +29,7 @@ func TestApplyWindows(t *testing.T) {
 	resourceVmSku := "2022-datacenter-smalldisk-g2"
 
 	// Define variables
-	locations := []string{"UK South"}
+	location := "UK South"
 
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
@@ -41,7 +41,7 @@ func TestApplyWindows(t *testing.T) {
 		Vars: map[string]interface{}{
 			"service_deployment":        serviceDeployment,
 			"resource_instance_count":   1,
-			"service_location":          locations,
+			"service_location":          location,
 			"operating_system_platform": operatingSystemPlatform,
 			"resource_vm_sku":           resourceVmSku,
 		},
@@ -72,7 +72,7 @@ func TestApplyLinux(t *testing.T) {
 	serviceDeployment := testREF + "-" + uniqueID
 
 	// Define variables
-	locations := []string{"UK South"}
+	location := "UK South"
 
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
@@ -84,7 +84,7 @@ func TestApplyLinux(t *testing.T) {
 		Vars: map[string]interface{}{
 			"service_deployment":      serviceDeployment,
 			"resource_instance_count": 1,
-			"service_location":        locations,
+			"service_location":        location,
 		},
 	})
 

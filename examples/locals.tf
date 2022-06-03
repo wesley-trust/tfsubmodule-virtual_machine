@@ -10,7 +10,6 @@ locals {
   service_environment_prefix = substr(var.service_environment, 0, 1)
 
   # Resource functions and concatenations
-  resource_group_name    = "${var.service_name}-${var.service_environment}-${local.service_location_prefix}-${var.service_deployment}-rg"
-  resource_name          = "${local.service_environment_prefix}-${local.service_location_prefix}-${var.resource_name}"
+  resource_name          = "${local.service_environment_prefix}-${local.service_location_prefix}"
   resource_instance_size = lookup(lookup(var.resource_instance_size, "Test", null), var.service_name, null)
 }
