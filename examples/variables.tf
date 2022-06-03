@@ -22,16 +22,6 @@ variable "service_location" {
 }
 
 # Required resource variables
-variable "resource_address_space" {
-  description = "Required address space of the network"
-  type        = string
-}
-
-variable "resource_dns_servers" {
-  description = "Desired DNS servers for the provisioned resources"
-  type        = list(any)
-}
-
 variable "resource_name" {
   description = "Desired name for the provisioned resources"
   type        = map(string)
