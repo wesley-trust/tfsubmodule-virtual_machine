@@ -1,12 +1,14 @@
-# Required service variables
+# Define variables
 variable "service_name" {
   description = "Desired name for the provisioned resources"
   type        = string
+  default     = "Services"
 }
 
 variable "service_environment" {
   description = "Desired environment for the service collection of provisioned resources"
   type        = string
+  default     = "Test"
 }
 
 variable "service_deployment" {
@@ -32,7 +34,10 @@ variable "resource_dns_servers" {
 
 variable "resource_name" {
   description = "Desired name for the provisioned resources"
-  type        = string
+  type        = map(string)
+  default = {
+    "Services" = "TST"
+  }
 }
 
 variable "resource_instance_count" {
@@ -42,7 +47,12 @@ variable "resource_instance_count" {
 
 variable "resource_instance_size" {
   description = "Desired size for the provisioned resources for each service"
-  type        = string
+  type        = map(any)
+  default = {
+    Test = {
+      "Services" = "Standard_B1s"
+    }
+  }
 }
 
 # Defined resource variables
@@ -72,19 +82,28 @@ variable "platform_location_az" {
 variable "resource_vm_sku" {
   description = "Desired size for the provisioned resources"
   type        = string
-  default     = "2022-datacenter-smalldisk-g2"
+  default     = "18.04-LTS"
 }
 
-variable "resource_data_disk_count" {
-  description = "Desired size for the provisioned resources for each service"
-  type        = number
-  default     = 0
+variable "operating_system_platform" {
+  description = "Desired OS for the provisioned resources"
+  type        = string
+  default     = "Linux"
 }
 
-variable "resource_data_disk_size" {
-  description = "Desired disk size for the provisioned data disk resources"
-  type        = number
-  default     = 32
+variable "resource_address_space" {
+  description = "Desired address space for the provisioned resources"
+  type        = string
+  default     = "10.0.2.0/24"
+}
+
+variable "resource_dns_servers" {
+  description = "Desired DNS servers for the provisioned resources"
+  type        = list(string)
+  default = [
+    "10.0.2.4",
+    "10.0.2.5"
+  ]
 }
 
 variable "resource_disk_size" {
@@ -103,38 +122,6 @@ variable "admin_username" {
   description = "Desired username for the provisioned resources"
   type        = string
   default     = "wesley"
-}
-
-variable "provision_public_load_balancer" {
-  description = "Whether to provision a public load balancer"
-  type        = bool
-  default     = false
-}
-
-variable "provision_key_vault" {
-  description = "Whether to provision a key vault"
-  type        = bool
-  default     = true
-}
-
-variable "resource_key_vault_access_object_ids" {
-  description = "The object IDs to have access to the key vault"
-  type        = list(string)
-  default = [
-    "27cf12d2-6428-4882-a6ff-ca3cf4aef391"
-  ]
-}
-
-variable "resource_traffic_manager_profile_name" {
-  description = "Traffic manager profile name"
-  type        = string
-  default     = null
-}
-
-variable "resource_traffic_manager_resource_group_name" {
-  description = "Traffic manager resource group name"
-  type        = string
-  default     = null
 }
 
 variable "resource_private_ip_initial_address" {

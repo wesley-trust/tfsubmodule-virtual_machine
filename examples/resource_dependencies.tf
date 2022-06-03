@@ -5,7 +5,7 @@ module "network_interfaces" {
   depends_on = [
     module.service_network
   ]
-  
+
   count                               = var.resource_instance_count
   source                              = "github.com/wesley-trust/tfsubmodule-network_interfaces"
   resource_location                   = module.resource_group.location
