@@ -123,4 +123,5 @@ variable "resource_private_ip_initial_address" {
 variable "resource_network_role" {
   description = "The network type for peering"
   type        = string
+  default = "Spoke"
 }
