@@ -9,7 +9,7 @@ import (
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
 )
 
-func TestApplySingleInstance_Windows(t *testing.T) {
+func TestApplyWindows(t *testing.T) {
 	t.Parallel()
 
 	// Root folder where Terraform files should be (relative to the test folder)
@@ -23,7 +23,7 @@ func TestApplySingleInstance_Windows(t *testing.T) {
 
 	// Generate a random deployment name for the test to prevent a naming conflict
 	uniqueID := random.UniqueId()
-	testREF := "SingleInstance_Windows"
+	testREF := "Windows"
 	serviceDeployment := testREF + "-" + uniqueID
 	operatingSystemPlatform := "Windows"
 	resourceVmSku := "2022-datacenter-smalldisk-g2"
@@ -54,7 +54,7 @@ func TestApplySingleInstance_Windows(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 }
 
-func TestApplySingleInstance_Linux(t *testing.T) {
+func TestApplyLinux(t *testing.T) {
 	t.Parallel()
 
 	// Root folder where Terraform files should be (relative to the test folder)
@@ -68,7 +68,7 @@ func TestApplySingleInstance_Linux(t *testing.T) {
 
 	// Generate a random deployment name for the test to prevent a naming conflict
 	uniqueID := random.UniqueId()
-	testREF := "SingleInstance_Linux"
+	testREF := "Linux"
 	serviceDeployment := testREF + "-" + uniqueID
 
 	// Define variables

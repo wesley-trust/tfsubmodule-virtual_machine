@@ -7,7 +7,7 @@ module "virtual_machine" {
   name                      = "${local.resource_name}${format("%02d", count.index + 1)}-vm"
   location                  = module.resource_group.location
   resource_group_name       = module.resource_group.name
-  size                      = var.resource_instance_size
+  size                      = local.resource_instance_size
   admin_username            = var.admin_username
   admin_password            = random_password.password[count.index].result
   operating_system_platform = var.operating_system_platform

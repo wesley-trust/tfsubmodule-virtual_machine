@@ -1,7 +1,3 @@
-output "public_ip_id" {
-  value = try(module.public_load_balancer[0].public_ip_id, null)
-}
-
 output "virtual_machine_id" {
   value = module.virtual_machine[*].id
 }
