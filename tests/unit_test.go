@@ -29,7 +29,7 @@ func TestPlanWindows(t *testing.T) {
 	resourceVmSku := "2022-datacenter-smalldisk-g2"
 
 	// Define variables
-	locations := "UK South"
+	location := "UK South"
 
 	// Enable retryable error
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
