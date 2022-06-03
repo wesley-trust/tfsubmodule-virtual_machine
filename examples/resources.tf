@@ -17,4 +17,8 @@ module "virtual_machine" {
 
   # Select the specific network interface from the instance count
   network_interface_ids = module.network_interfaces[count.index].network_interface_ids
+
+  # Set null values
+  availability_set_id = null
+  zone                = null
 }
