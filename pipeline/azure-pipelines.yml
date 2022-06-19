@@ -18,15 +18,6 @@ pr:
   paths:
     exclude:
     - README.md
-
-# Trigger for regression test dependencies
-resources:
-  pipelines:
-  - pipeline: Network  
-    source: tfsubmodule-network
-    trigger:    
-      stages:
-      - Regression
       
 extends:
   template: ./Shared/azure-pipelines.yml
