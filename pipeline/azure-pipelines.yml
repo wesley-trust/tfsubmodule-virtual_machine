@@ -22,16 +22,16 @@ pr:
 # Trigger for regression test dependencies
 resources:
   pipelines:
-  - pipeline: Network  
-    source: tfsubmodule-network
-    trigger:    
-      stages:
-      - Regression
-  - pipeline: 'Resource Group'  
-    source: tfmodule-resource_group
-    trigger:    
-      stages:
-      - Regression
+  #- pipeline: Network  
+  #  source: tfsubmodule-network
+  #  trigger:    
+  #    stages:
+  #    - Regression
+  #- pipeline: 'Resource Group'  
+  #  source: tfmodule-resource_group
+  #  trigger:    
+  #    stages:
+  #    - Regression
   - pipeline: 'Network Interfaces'  
     source: tfsubmodule-network_interfaces
     trigger:    
