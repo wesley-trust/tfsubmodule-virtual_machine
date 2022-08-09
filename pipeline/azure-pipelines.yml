@@ -33,7 +33,7 @@ resources:
   #    stages:
   #    - Regression
   - pipeline: 'Network Interfaces'  
-    source: 'ENV-P;REF-latest; tfsubmodule-network_interface'
+    source: ENV-P;REF-latest; tfsubmodule-network_interface
     trigger:    
       stages:
       - Regression
