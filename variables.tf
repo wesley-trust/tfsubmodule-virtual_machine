@@ -4,6 +4,12 @@ variable "name" {
   type        = string
 }
 
+variable "source_image_id" {
+  description = "The image ID for the provisioned resources"
+  type        = string
+  default     = null
+}
+
 variable "location" {
   description = "Desired location for the provisioned resources"
   type        = string
