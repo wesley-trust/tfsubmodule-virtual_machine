@@ -30,7 +30,7 @@ resource "azurerm_windows_virtual_machine" "virtual_machine" {
 
   # Use a standard image if a custom image is not provided
   dynamic "source_image_reference" {
-    for_each = var.source_image_id != null ? [1] : []
+    for_each = var.source_image_id == null ? [1] : []
 
     content {
       publisher = "MicrosoftWindowsServer"
