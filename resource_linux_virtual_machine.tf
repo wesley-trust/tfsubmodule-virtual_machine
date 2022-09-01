@@ -30,7 +30,7 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
 
   # Use a standard image if a custom image is not provided
   dynamic "source_image_reference" {
-    foreach = var.image != null ? var.image : []
+    for_each = var.image != null ? var.image : []
 
     content {
       publisher = "Canonical"
