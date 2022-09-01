@@ -25,7 +25,13 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
     disk_size_gb         = var.disk_size_gb
   }
 
-  source_image_reference {
+  # Specify a custom image (if not null)
+  source_image_id = var.image
+
+  # Use a standard image if a custom image is not provided
+  dynamic "source_image_reference" {
+    count = var.image == null ? 1 : 0
+
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = var.sku

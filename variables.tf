@@ -4,6 +4,12 @@ variable "name" {
   type        = string
 }
 
+variable "image" {
+  description = "Desired image for the provisioned resources"
+  type        = string
+  nullable    = true
+}
+
 variable "location" {
   description = "Desired location for the provisioned resources"
   type        = string
