@@ -7,7 +7,7 @@ variable "name" {
 variable "image" {
   description = "Desired image for the provisioned resources"
   type        = string
-  nullable    = true
+  default     = null
 }
 
 variable "location" {
