@@ -26,16 +26,18 @@ resource "azurerm_windows_virtual_machine" "virtual_machine" {
   }
 
   # Specify a custom image (if not null)
-  source_image_id = var.image
+  source_image_id = var.source_image_id
 
   # Use a standard image if a custom image is not provided
   dynamic "source_image_reference" {
-    count = var.image == null ? 1 : 0
+    foreach = var.image != null ? var.image : []
 
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = var.sku
-    version   = "latest"
+    content {
+      publisher = "MicrosoftWindowsServer"
+      offer     = "WindowsServer"
+      sku       = var.sku
+      version   = "latest"
+    }
   }
 
   boot_diagnostics {

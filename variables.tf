@@ -4,8 +4,8 @@ variable "name" {
   type        = string
 }
 
-variable "image" {
-  description = "Desired image for the provisioned resources"
+variable "source_image_id" {
+  description = "The image ID for the provisioned resources"
   type        = string
   default     = null
 }
