@@ -23,6 +23,14 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
     caching              = "ReadOnly"
     storage_account_type = "Standard_LRS"
     disk_size_gb         = var.disk_size_gb
+
+    dynamic "diff_disk_settings" {
+      for_each = var.ephemeral_disk_enabled == true ? [1] : []
+      content {
+        option    = "Local"
+        placement = "CacheDisk"
+      }
+    }
   }
 
   # Specify a custom image (if not null)

@@ -72,3 +72,9 @@ variable "environment" {
   description = "Desired environment for the service collection of provisioned resources"
   type        = string
 }
+
+variable "ephemeral_disk_enabled" {
+  description = "Whether to use a ephemeral OS disk the provisioned resources"
+  type        = bool
+  default     = false
+}
